@@ -1,61 +1,90 @@
-// import './js/modal-menu';
+import './js/modal-menu';
+import './js/arrow-button';
+import './js/get-qoute';
 
 import axios from 'axios';
-
-// Elements ojects
-const elements = {
-  quoteСont: document.querySelector('.js-info-quote'),
-  quoteAuthor: document.querySelector('.js-quote-author'),
-};
-const { quoteСont, quoteAuthor } = elements;
-
 // axios.defaults.baseURL;
 axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
 
-// request function
-async function requestQuote(endPoint) {
-  const objQote = {};
-  objQote.date = new Date();
+// ---------SECTION QUOTE---------
 
-  const response = await axios.get(`${endPoint}`);
-  console.log(response);
+// import getQoute from './js/get-qoute';
+
+getQoute('quote', '.js-quote-text', '.js-quote-author');
+
+// -----------SECTION FAVORITES------------
+
+const favorContent = document.querySelector('.js-favor-content');
+console.log(favorContent);
+
+// Запрос на бэкенд получение данных по упражениям
+// Запись ответа с бекенда в LS
+
+const FAVORITES_LS_KEY = 'exerciseItems';
+
+async function requestSearchExercises(
+  endPoint,
+  filter,
+  subsPart,
+  currentPage,
+  perPage
+) {
+  const config = {
+    params: {
+      [filter]: subsPart,
+      limit: perPage,
+      page: currentPage,
+    },
+  };
+
+  const response = await axios.get(`${endPoint}`, config);
+
   const {
-    data: { author, quote },
+    data,
+    data: { results },
   } = response;
-  objQote.author = author;
-  objQote.quote = quote;
-  console.log(objQote);
 
-  localStorage.setItem('qouteData', JSON.stringify(objQote));
-  const savedQoteDate = JSON.parse(localStorage.getItem('qouteData'));
-  console.log(savedQoteDate);
-
-  quoteСont.textContent = savedQoteDate.quote;
-  quoteAuthor.textContent = savedQoteDate.author;
+  localStorage.setItem(FAVORITES_LS_KEY, JSON.stringify(results));
 }
 
-requestQuote('quote');
+requestSearchExercises('exercises', 'bodypart', 'cardio', 1, 30);
 
-// requestQuote('quote').then(({ data: { author, quote } }) =>
-//   console.log({ author, quote })
-// );
+// Получение данных из LS
 
-// async function requestSearch(endPoint, filter, currentPage, perPage) {
-//   const config = {
-//     params: {
-//       filter,
-//       limit: perPage,
-//       page: currentPage,
-//     },
-//   };
+const favorExercLS = JSON.parse(localStorage.getItem(FAVORITES_LS_KEY));
+// const favorExercNumber = favorExercLS.length;
 
-//   const response = await axios.get(`${endPoint}`, config);
+console.log(favorExercLS);
+// console.log(favorExercNumber);
 
-//   console.log(response);
-//   return response;
-// }
+// Разметка для заглушки
+const markupPlug =
+  '<div class="favor-plug-wrap"><div class="favor-icon-wrap"><img class="favor-icon-item" src="./img/dumbbell/dumbbell-desktop.png" alt=""></div><div class="favor-text">It appears that you haven&#8216t added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future</div></div>';
 
-// requestSearch('filters', 'Body parts', 1, 12);
+// Шаблон разметка для заглушки
+const markupCard =
+  '<ul><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li> </ul>';
+
+// Прверкa на null (если нет данных в LS с таким ключом) и на длину массива
+
+if (favorExercLS === null) {
+  createMarkupNonFavExers();
+} else if ((favorExercLS.length = 0)) {
+  createMarkupNonFavExers();
+} else {
+  createMarkupFavExers(favorExercLS);
+}
+
+// Функция для разметки из массива объектов упражнений
+function createMarkupFavExers(arr) {
+  favorContent.innerHTML = markupCard;
+}
+
+// Функция для разметки, если нет упраженений, выводит сообщение
+
+function createMarkupNonFavExers() {
+  favorContent.innerHTML = markupPlug;
+}
 
 // Объект с информацией по упражнению
 // {
