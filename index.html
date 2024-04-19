@@ -3,17 +3,18 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Energy Flow</title>
 
   <!-- favicon -->
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/energy.flow/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/energy.flow/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/energy.flow/favicon-16x16.png" />
+  <link rel="manifest" href="/energy.flow/site.webmanifest" />
+  <link rel="mask-icon" href="/energy.flow/safari-pinned-tab.svg" color="#5bbad5" />
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energy Flow</title>
 
   <!-- Modern-normalize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
@@ -21,17 +22,240 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Custom styles -->
   
-  <script type="module" crossorigin src="/energy.flow/assets/modulepreload-polyfill-3cfb730f.js"></script>
-  <link rel="stylesheet" href="/energy.flow/assets/index-e55efc08.css">
+  <script type="module" crossorigin src="/energy.flow/assets/vendor-0cb09735.js"></script>
+  <script type="module" crossorigin src="/energy.flow/assets/quote-day-b148de31.js"></script>
+  <link rel="stylesheet" href="/energy.flow/assets/index-a1065ddb.css">
 </head>
 
 <body>
 
   <header class="header">
-  <h2>header section</h2>
-  <a href="./favorites.html">Favorites</a>
-</header>
+  <div class="header-container container">
+    <nav class="header-nav">
+      <a class="header-logo" href="./index.html">energy.flow</a>
+      <ul class="header-nav-list">
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./index.html">Home</a>
+        </li>
+        <li class="header-nav-item active">
+          <a class="header-nav-link" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+    </nav>
+    <ul class="header-social-list">
+      <li class="header-social-item">
+        <a class="header-social-link" href="https://www.facebook.com/goITclub/" rel="noopener noreferrer nofollow"
+          target="_blank" aria-label="facebook">
+          <svg class="social-icon" width="28" height="28">
+            <use href="/energy.flow/assets/sprite-f8222074.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="header-social-item">
+        <a class="header-social-link" href="https://www.instagram.com/goitclub/" rel="noopener noreferrer nofollow"
+          target="_blank" aria-label="instagram">
+          <svg class="social-icon" width="28" height="28">
+            <use href="/energy.flow/assets/sprite-f8222074.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="header-social-item">
+        <a class="header-social-link" href="https://www.youtube.com/c/GoIT" rel="noopener noreferrer nofollow"
+          target="_blank" aria-label="youtube">
+          <svg class="social-icon" width="28" height="28">
+            <use href="/energy.flow/assets/sprite-f8222074.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
 
+    <!-- Button mobile-menu -->
+    <button class="mobile-menu-btn button-header" data-modal-open type="button">
+      <svg class="mobile-menu-icon" width="32" height="16">
+        <use href="/energy.flow/assets/sprite-f8222074.svg#icon-burger"></use>
+      </svg>
+    </button>
+  </div>
+
+</header>
+  <section class="hero section">
+   <div class="container hero-container">
+      <div class="hero-img">
+         <ul class="hero-teg-list">
+            <li class="hero-teg-item">
+               <a href="" class="hero-teg-link">#Sport</a>
+            </li>
+            <li class="hero-teg-item">
+               <a href="" class="hero-teg-link">#Healthy</a>
+            </li>
+            <li class="hero-teg-item">
+               <a href="" class="hero-teg-link">#Workout</a>
+            </li>
+            <li class="hero-teg-item">
+               <a href="" class="hero-teg-link">#Diet</a>
+            </li>
+         </ul>
+      </div>
+      <div class="hero-descr">
+         <h1 class="hero-title">Get <span class="hero-title-color">Body</span> in shape, Stay healthy
+         </h1>
+         <p class="hero-text">Transform your physiqu e and embrace a healthier lifestyle with our comprehensive fitness
+            and nutrition support.</p>
+      </div>
+
+   </div>
+</section>
+  <section class="quote section">
+   <div class="container qoute-container">
+      <div class="info-quote">
+   <h2 class="info-quote-title">Quote of the day</h2>
+   <p class="js-quote-text info-quote-cont"></p>
+   <p class="js-quote-author info-quote-author"></p>
+   <div class="info-icon-wrap">
+      <svg class="info-icon-item" width="18" height="20">
+         <use href="/energy.flow/assets/sprite-f8222074.svg#icon-running-men"></use>
+      </svg>
+   </div>
+   <div class="info-marks-wrap">
+      <svg class="info-marks-item">
+         <use href="/energy.flow/assets/sprite-f8222074.svg#icon-inverted-commas"></use>
+      </svg>
+   </div>
+</div>
+      <div class="quote-img"></div>
+
+   </div>
+
+</section>
+  <section class="exercises section">
+   <div class="container exercises-container">
+      <div class="exercises-wrapper">
+         <h2 class="exercises-title">Exercises</h2>
+         <ul class="exercises-filter-list">
+            <li class="exercises-filter-item">
+               <button class="exercises-filter-btn btn-active">Muscles</button>
+            </li>
+            <li class="exercises-filter-item">
+               <button class="exercises-filter-btn">Body parts</button>
+            </li>
+            <li class="exercises-filter-item">
+               <button class="exercises-filter-btn">Equipment</button>
+            </li>
+         </ul>
+         <ul class="exercises-types-list">
+            <li class="exercises-types-item">
+               <h3 class="exercises-types-title">Abductors</h3>
+               <p class="exercises-types-name">Muscles</p>
+            </li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+            <li class="exercises-types-item"></li>
+
+         </ul>
+         <div class="exercises-types-page">
+
+         </div>
+      </div>
+   </div>
+
+</section>
+  <div class="backdrop-menu-modal container is-hidden">
+  <div class="menu-modal">
+    <!-- Modal Header -->
+    <div class="menu-modal-header">
+      <!-- LOGO -->
+      <a class="modal-menu-logo" href="./index.html">energy.flow</a>
+
+      <!-- Button CLOSE -->
+      <button class="menu-modal-close-button" type="button">
+        <svg
+          class="menu-modal-close-icon"
+          fill="#212121"
+          width="20"
+          height="20"
+        >
+          <use href="/energy.flow/assets/sprite-f8222074.svg#icon-x-big-white"></use>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Middle Buttons -->
+    <div>
+      <div class="modal-menu-buttons">
+        <button
+          class="modal-menu-button-home"
+          type="button"
+          onclick="window.location.href = './index.html'"
+        >
+          Home
+        </button>
+        <button
+          class="modal-menu-button-favorites"
+          type="button"
+          onclick="window.location.href = './favorites.html'"
+        >
+          Favorites
+        </button>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+
+    <div class="modal-menu-socials-wrap">
+      <ul class="modal-menu-socials-list">
+        <li class="modal-menu-socials-item">
+          <a
+            class="modal-menu-socials-linc"
+            href="https://www.facebook.com/goITclub"
+            target="_blank"
+          >
+            <svg class="modal-menu-socials-svg" width="20" height="20">
+              <use href="/energy.flow/assets/sprite-f8222074.svg#icon-facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="modal-menu-socials-item">
+          <a
+            class="modal-menu-socials-linc"
+            href="https://www.instagram.com/goitclub"
+            target="_blank"
+          >
+            <svg class="modal-menu-socials-svg" width="20" height="20">
+              <use href="/energy.flow/assets/sprite-f8222074.svg#icon-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="modal-menu-socials-item">
+          <a
+            class="modal-menu-socials-linc"
+            href="https://www.youtube.com/c/GoIT"
+            target="_blank"
+          >
+            <svg class="modal-menu-socials-svg" width="20" height="20">
+              <use href="/energy.flow/assets/sprite-f8222074.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Liudmyla Bykova -->
+  <button class="up-btn is-hidden" type="button">
+    <svg class="up-button-icon" width="13" height="13">
+        <use href="/energy.flow/assets/sprite-f8222074.svg#icon-arrow-up"></use>
+    </svg>
+</button>
 
 
 
