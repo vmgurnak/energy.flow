@@ -1,6 +1,7 @@
-export default getQoute;
-
 import axios from 'axios';
+
+// axios.defaults.baseURL;
+axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
 
 // FUNCTION GET QOTE
 
@@ -54,3 +55,7 @@ function getQoute(endPoint, text, author) {
     }
   }
 }
+
+// ---------SECTION QUOTE---------
+
+getQoute('quote', '.js-quote-text', '.js-quote-author');

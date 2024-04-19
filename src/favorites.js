@@ -1,25 +1,22 @@
 import './js/modal-menu';
 import './js/arrow-button';
-import './js/get-qoute';
+import './js/quote-day';
+// import getQoute from './js/get-qoute';
 
 import axios from 'axios';
-// axios.defaults.baseURL;
-axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
+// // axios.defaults.baseURL;
+// axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
 
 // ---------SECTION QUOTE---------
 
-// import getQoute from './js/get-qoute';
-
-getQoute('quote', '.js-quote-text', '.js-quote-author');
+// getQoute('quote', '.js-quote-text', '.js-quote-author');
 
 // -----------SECTION FAVORITES------------
 
 const favorContent = document.querySelector('.js-favor-content');
-console.log(favorContent);
 
 // Запрос на бэкенд получение данных по упражениям
 // Запись ответа с бекенда в LS
-
 const FAVORITES_LS_KEY = 'exerciseItems';
 
 async function requestSearchExercises(
@@ -50,7 +47,6 @@ async function requestSearchExercises(
 requestSearchExercises('exercises', 'bodypart', 'cardio', 1, 30);
 
 // Получение данных из LS
-
 const favorExercLS = JSON.parse(localStorage.getItem(FAVORITES_LS_KEY));
 // const favorExercNumber = favorExercLS.length;
 
@@ -61,9 +57,19 @@ console.log(favorExercLS);
 const markupPlug =
   '<div class="favor-plug-wrap"><div class="favor-icon-wrap"><img class="favor-icon-item" src="./img/dumbbell/dumbbell-desktop.png" alt=""></div><div class="favor-text">It appears that you haven&#8216t added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future</div></div>';
 
-// Шаблон разметка для заглушки
+// Шаблон разметка c упражениями
 const markupCard =
   '<ul><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li><li>FAVORITE EXERCISES</li> </ul>';
+
+// Функция для разметки из массива объектов упражнений
+function createMarkupFavExers(arr) {
+  favorContent.innerHTML = markupCard;
+}
+
+// Функция для разметки, если нет упраженений, выводит сообщение
+function createMarkupNonFavExers() {
+  favorContent.innerHTML = markupPlug;
+}
 
 // Прверкa на null (если нет данных в LS с таким ключом) и на длину массива
 
@@ -73,17 +79,6 @@ if (favorExercLS === null) {
   createMarkupNonFavExers();
 } else {
   createMarkupFavExers(favorExercLS);
-}
-
-// Функция для разметки из массива объектов упражнений
-function createMarkupFavExers(arr) {
-  favorContent.innerHTML = markupCard;
-}
-
-// Функция для разметки, если нет упраженений, выводит сообщение
-
-function createMarkupNonFavExers() {
-  favorContent.innerHTML = markupPlug;
 }
 
 // Объект с информацией по упражнению

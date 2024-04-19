@@ -1,0 +1,71 @@
+/* ----------------SECTION QUOTE--------------- */
+
+.qoute-container {
+}
+@media screen and (min-width: 1440px) {
+  .qoute-container {
+    display: flex;
+  }
+}
+
+/* ---------------quote-img------------------- */
+
+.quote-img {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  background-image: url(../img/quote/qoute-img.png);
+  background-size: cover;
+  border-radius: 30px;
+
+  max-width: 335px;
+  height: 272px;
+}
+
+/* retina mobile screen */
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .quote-img {
+    background-image: url(../img/quote/qoute-img@2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .quote-img {
+    max-width: 736px;
+    height: 302px;
+    border-radius: 50px;
+
+    background-image: url(../img/quote/qoute-img-tab.png);
+  }
+
+  /* retina tab screen */
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .quote-img {
+      background-image: url(../img/quote/qoute-img-tab@2x.png);
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .quote-img {
+    width: 704px;
+
+    background-image: url(../img/quote/qoute-img-pc.png);
+  }
+
+  /* retina pc screen */
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .quote-img {
+      background-image: url(../img/quote/qoute-img-pc@2x.png);
+    }
+  }
+}
